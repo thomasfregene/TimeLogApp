@@ -1,4 +1,5 @@
 ﻿using HicadEmployeeAttendaceeSystem.Data;
+using HicadEmployeeAttendaceeSystem.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -25,6 +26,32 @@ namespace HicadEmployeeAttendaceeSystem.Controllers
             var employee = await _context.Employees.ToListAsync();
 
             return Ok(employee);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateEmployee([FromBody] Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                var validEmployee = new Employee()
+                {
+                    FirstName = employee.FirstName,
+                    LastName = employee.LastName,
+                    Email = employee.Email,
+                    Address = employee.Address,
+                    PhoneNumber = employee.PhoneNumber,
+                    UserName = employee.UserName,
+                    DepartmentId = employee.DepartmentId,
+                    CreatedOn = employee.CreatedOn = DateTime.Now
+                };
+                await _context.Employees.AddAsync(validEmployee);
+
+                await _context.SaveChangesAsync();
+
+                return CreatedAtAction("GetEmployees", new { validEmployee.Id, validEmployee.CreatedOn }, employee);
+            }
+
+            return new JsonResult("Something went wrong while creating record");
         }
     }
 }

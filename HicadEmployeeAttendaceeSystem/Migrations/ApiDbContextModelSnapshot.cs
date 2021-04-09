@@ -21,41 +21,42 @@ namespace HicadEmployeeAttendaceeSystem.Migrations
 
             modelBuilder.Entity("HicadEmployeeAttendaceeSystem.Model.Department", b =>
                 {
-                    b.Property<string>("DepartmentName")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.HasKey("DepartmentName");
+                    b.Property<string>("DepartmentName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Departments");
 
                     b.HasData(
                         new
                         {
+                            Id = 1,
                             DepartmentName = "Admin"
                         },
                         new
                         {
+                            Id = 2,
                             DepartmentName = "IT"
                         },
                         new
                         {
+                            Id = 3,
                             DepartmentName = "Office Management"
                         });
                 });
 
             modelBuilder.Entity("HicadEmployeeAttendaceeSystem.Model.Employee", b =>
                 {
-                    b.Property<string>("UserName")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
@@ -63,18 +64,16 @@ namespace HicadEmployeeAttendaceeSystem.Migrations
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DepartmentId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
-
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -89,7 +88,11 @@ namespace HicadEmployeeAttendaceeSystem.Migrations
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("UserName", "Email");
+                    b.Property<string>("UserName")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("DepartmentId");
 
@@ -103,16 +106,8 @@ namespace HicadEmployeeAttendaceeSystem.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("EmployeeEmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
-
-                    b.Property<string>("EmployeeUserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)");
 
                     b.Property<DateTime?>("TimeIn")
                         .HasColumnType("datetime2");
@@ -122,7 +117,7 @@ namespace HicadEmployeeAttendaceeSystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployeeUserName", "EmployeeEmail");
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("EmployeeTimeLogs");
                 });
@@ -131,7 +126,9 @@ namespace HicadEmployeeAttendaceeSystem.Migrations
                 {
                     b.HasOne("HicadEmployeeAttendaceeSystem.Model.Department", "Department")
                         .WithMany()
-                        .HasForeignKey("DepartmentId");
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Department");
                 });
@@ -140,7 +137,7 @@ namespace HicadEmployeeAttendaceeSystem.Migrations
                 {
                     b.HasOne("HicadEmployeeAttendaceeSystem.Model.Employee", "Employee")
                         .WithMany()
-                        .HasForeignKey("EmployeeUserName", "EmployeeEmail")
+                        .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

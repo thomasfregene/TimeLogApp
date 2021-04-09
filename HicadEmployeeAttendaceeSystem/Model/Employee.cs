@@ -25,7 +25,7 @@ namespace HicadEmployeeAttendaceeSystem.Model
         [StringLength(255)]
         public string UserName { get; set; }
         public Department Department { get; set; }
-        public string DepartmentId { get; set; }
+        public int DepartmentId { get; set; }
         public DateTime? CreatedOn { get; set; }
         public DateTime? UpdatedOn { get; set; }
 

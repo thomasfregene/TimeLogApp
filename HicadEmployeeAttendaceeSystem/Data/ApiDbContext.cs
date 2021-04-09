@@ -22,24 +22,24 @@ namespace HicadEmployeeAttendaceeSystem.Data
         //composite key using fluent Api
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employee>()
-                .HasKey(e => new {e.UserName, e.Email });
+            //modelBuilder.Entity<Employee>()
+            //    .HasKey(e => new {e.UserName, e.Email });
+
+            //modelBuilder.Entity<Department>()
+            //    .HasKey(d=>new { d.DepartmentName});
+
+            //modelBuilder.Entity<Department>()
+            //    .Property(d => d.Id)
+            //    .ValueGeneratedOnAdd();
+
+            //modelBuilder.Entity<Employee>()
+            //    .Property(e => e.Id)
+            //    .ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Department>()
-                .HasKey(d=>new { d.DepartmentName});
-
-            modelBuilder.Entity<Department>()
-                .Property(d => d.Id)
-                .ValueGeneratedOnAdd();
-
-            modelBuilder.Entity<Employee>()
-                .Property(e => e.Id)
-                .ValueGeneratedOnAdd();
-
-            modelBuilder.Entity<Department>()
-                .HasData(new { DepartmentName = "Admin" },
-                new { DepartmentName = "IT" },
-                new { DepartmentName = "Office Management" });
+                .HasData(new { Id=1, DepartmentName = "Admin" },
+                new { Id = 2, DepartmentName = "IT" },
+                new { Id = 3, DepartmentName = "Office Management" });
 
 
         }
