@@ -61,3 +61,8 @@ C:\Projects\HicadProject\HicadEmployeeAttendaceeSystem\HicadEmployeeAttendaceeSy
 C:\Projects\HicadProject\HicadEmployeeAttendaceeSystem\HicadEmployeeAttendaceeSystem\obj\Debug\netcoreapp3.1\HicadEmployeeAttendaceeSystem.dll
 C:\Projects\HicadProject\HicadEmployeeAttendaceeSystem\HicadEmployeeAttendaceeSystem\obj\Debug\netcoreapp3.1\HicadEmployeeAttendaceeSystem.pdb
 C:\Projects\HicadProject\HicadEmployeeAttendaceeSystem\HicadEmployeeAttendaceeSystem\obj\Debug\netcoreapp3.1\HicadEmployeeAttendaceeSystem.genruntimeconfig.cache
+C:\Projects\HicadProject\HicadEmployeeAttendaceeSystem\HicadEmployeeAttendaceeSystem\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Projects\HicadProject\HicadEmployeeAttendaceeSystem\HicadEmployeeAttendaceeSystem\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Projects\HicadProject\HicadEmployeeAttendaceeSystem\HicadEmployeeAttendaceeSystem\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Projects\HicadProject\HicadEmployeeAttendaceeSystem\HicadEmployeeAttendaceeSystem\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Projects\HicadProject\HicadEmployeeAttendaceeSystem\HicadEmployeeAttendaceeSystem\obj\Debug\netcoreapp3.1\HicadEmployeeAttendaceeSystem.MvcApplicationPartsAssemblyInfo.cs
