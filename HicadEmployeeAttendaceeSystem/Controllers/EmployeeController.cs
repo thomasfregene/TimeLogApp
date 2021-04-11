@@ -23,7 +23,9 @@ namespace HicadEmployeeAttendaceeSystem.Controllers
        [HttpGet]
        public async Task<IActionResult> GetEmployees()
         {
-            var employee = await _context.Employees.ToListAsync();
+            var employee = await _context.Employees
+                .Include(d=>d.Department)
+                .ToListAsync();
 
             return Ok(employee);
         }

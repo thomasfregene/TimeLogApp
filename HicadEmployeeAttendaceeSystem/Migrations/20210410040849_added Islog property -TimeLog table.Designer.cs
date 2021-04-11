@@ -4,14 +4,16 @@ using HicadEmployeeAttendaceeSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HicadEmployeeAttendaceeSystem.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    partial class ApiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210410040849_added Islog property -TimeLog table")]
+    partial class addedIslogpropertyTimeLogtable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -109,7 +111,7 @@ namespace HicadEmployeeAttendaceeSystem.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("IsLogin")
+                    b.Property<bool>("IsLogin")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("TimeIn")

@@ -4,14 +4,16 @@ using HicadEmployeeAttendaceeSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HicadEmployeeAttendaceeSystem.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    partial class ApiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210410151659_set boolean to nullable")]
+    partial class setbooleantonullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,23 +34,6 @@ namespace HicadEmployeeAttendaceeSystem.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Departments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DepartmentName = "Admin"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DepartmentName = "IT"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DepartmentName = "Office Management"
-                        });
                 });
 
             modelBuilder.Entity("HicadEmployeeAttendaceeSystem.Model.Employee", b =>

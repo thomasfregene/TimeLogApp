@@ -20,29 +20,29 @@ namespace HicadEmployeeAttendaceeSystem.Data
         public virtual DbSet<EmployeeTimeLog> EmployeeTimeLogs { get; set; }
 
         //composite key using fluent Api
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            //modelBuilder.Entity<Employee>()
-            //    .HasKey(e => new {e.UserName, e.Email });
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Employee>()
+        //        .HasKey(e => new { e.UserName, e.Email });
 
-            //modelBuilder.Entity<Department>()
-            //    .HasKey(d=>new { d.DepartmentName});
+        //    modelBuilder.Entity<Department>()
+        //        .HasKey(d => new { d.DepartmentName });
 
-            //modelBuilder.Entity<Department>()
-            //    .Property(d => d.Id)
-            //    .ValueGeneratedOnAdd();
+        //    modelBuilder.Entity<Department>()
+        //        .Property(d => d.Id)
+        //        .ValueGeneratedOnAdd();
 
-            //modelBuilder.Entity<Employee>()
-            //    .Property(e => e.Id)
-            //    .ValueGeneratedOnAdd();
+        //    modelBuilder.Entity<Employee>()
+        //        .Property(e => e.Id)
+        //        .ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<Department>()
-                .HasData(new { Id=1, DepartmentName = "Admin" },
-                new { Id = 2, DepartmentName = "IT" },
-                new { Id = 3, DepartmentName = "Office Management" });
+        //    modelBuilder.Entity<Department>()
+        //        .HasData(new { Id = 1, DepartmentName = "Admin" },
+        //        new { Id = 2, DepartmentName = "IT" },
+        //        new { Id = 3, DepartmentName = "Office Management" });
 
 
-        }
+        //}
 
     }
 }

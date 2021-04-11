@@ -13,6 +13,6 @@ namespace HicadEmployeeAttendaceeSystem.Model
         public DateTime? TimeOut { get; set; }
         public Employee Employee { get; set; }
         public int EmployeeId { get; set; }
-
+        public bool? IsLogin { get; set; }
     }
 }
