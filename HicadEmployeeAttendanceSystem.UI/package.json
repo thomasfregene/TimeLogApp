@@ -11,5 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "laravel-mix": "^5.0.9"
   }
 }
