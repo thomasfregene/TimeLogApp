@@ -23,7 +23,10 @@ namespace HicadEmployeeAttendaceeSystem.Controllers
         [HttpGet]
         public async Task<IActionResult> GetEmployeeTimeLog()
         {
-            var timeLog = await _context.EmployeeTimeLogs.Include(t=>t.Employee).ToListAsync();
+            var timeLog = await _context.EmployeeTimeLogs
+                .Include(t=>t.Employee)
+                .ThenInclude(t=>t.Department)
+                .ToListAsync();
 
             return Ok(timeLog);
         }
@@ -34,6 +37,8 @@ namespace HicadEmployeeAttendaceeSystem.Controllers
             var empTimeLog = await _context.EmployeeTimeLogs.Where(t => t.EmployeeId == timeLog.EmployeeId).FirstOrDefaultAsync();
             var timeIn = new EmployeeTimeLog();
 
+            var timeDifference = empTimeLog.TimeOut;
+
             try
             {
                 if (empTimeLog.IsLogin == true)
@@ -42,7 +47,6 @@ namespace HicadEmployeeAttendaceeSystem.Controllers
                 }
                 else if (ModelState.IsValid)
                 {
-
                     timeIn.EmployeeId = timeLog.EmployeeId;
                     timeIn.IsLogin = true;
                     timeIn.TimeIn = DateTime.Now;

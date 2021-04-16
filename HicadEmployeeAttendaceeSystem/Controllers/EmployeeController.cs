@@ -54,6 +54,6 @@ namespace HicadEmployeeAttendaceeSystem.Controllers
             }
 
             return new JsonResult("Something went wrong while creating record");
-        }
+          }
     }
 }

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "rq9l3tu0XioCEmwo2OJyc4uZf584IVyOFOILn3WXfVf+D4SF2MONreHwr4Nd+VBhyeGR11XRGsfuwuIj7ch4mg==",
+  "success": true,
+  "projectFilePath": "E:\\ProjectsTom\\HicadEmployeeAttendaceeSystem\\HicadEmployeeAttendanceSystem.UI\\HicadEmployeeAttendanceSystem.UI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HICADB\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}
